@@ -1,0 +1,4471 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "dnswhoopdevcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoopdev.com.",
+        "RecordSets": [
+          {
+            "Name": "whoopdev.com.",
+            "Type": "SPF",
+            "TTL": "300",
+            "ResourceRecords": [
+              "\"v=spf1 mx -all\""
+            ]
+          }
+        ]
+      }
+    },
+    "dnsapiwhoopdevcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoopdev.com.",
+        "RecordSets": [
+          {
+            "Name": "api.whoopdev.com.",
+            "Type": "A",
+            "ResourceRecords": [
+
+            ],
+            "AliasTarget": {
+              "HostedZoneId": "Z33MTJ483KN6FU",
+              "DNSName": "elb-api-server-1051798522.us-west-2.elb.amazonaws.com"
+            }
+          }
+        ]
+      }
+    },
+    "dnsbastionwhoopdevcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoopdev.com.",
+        "RecordSets": [
+          {
+            "Name": "bastion.whoopdev.com.",
+            "Type": "CNAME",
+            "TTL": "300",
+            "ResourceRecords": [
+              "ec2-54-68-199-53.us-west-2.compute.amazonaws.com"
+            ]
+          }
+        ]
+      }
+    },
+    "dnsdevwhoopdevcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoopdev.com.",
+        "RecordSets": [
+          {
+            "Name": "dev.whoopdev.com.",
+            "Type": "A",
+            "TTL": "300",
+            "ResourceRecords": [
+              "172.16.0.10"
+            ]
+          }
+        ]
+      }
+    },
+    "dnsrdbdevwhoopdevcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoopdev.com.",
+        "RecordSets": [
+          {
+            "Name": "rdb.dev.whoopdev.com.",
+            "Type": "A",
+            "TTL": "300",
+            "ResourceRecords": [
+              "172.16.0.10"
+            ]
+          }
+        ]
+      }
+    },
+    "dnstsdbdevwhoopdevcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoopdev.com.",
+        "RecordSets": [
+          {
+            "Name": "tsdb.dev.whoopdev.com.",
+            "Type": "A",
+            "TTL": "300",
+            "ResourceRecords": [
+              "172.16.0.10"
+            ]
+          }
+        ]
+      }
+    },
+    "dnsintrepidwhoopdevcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoopdev.com.",
+        "RecordSets": [
+          {
+            "Name": "intrepid.whoopdev.com.",
+            "Type": "CNAME",
+            "TTL": "300",
+            "ResourceRecords": [
+              "ec2-54-186-180-37.us-west-2.compute.amazonaws.com"
+            ]
+          }
+        ]
+      }
+    },
+    "dnsmailwhoopdevcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoopdev.com.",
+        "RecordSets": [
+          {
+            "Name": "mail.whoopdev.com.",
+            "Type": "CNAME",
+            "TTL": "300",
+            "ResourceRecords": [
+              "ec2-54-200-36-253.us-west-2.compute.amazonaws.com"
+            ]
+          }
+        ]
+      }
+    },
+    "dnsrdbmsmasterwhoopdevcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoopdev.com.",
+        "RecordSets": [
+          {
+            "Name": "rdbms-master.whoopdev.com.",
+            "Type": "CNAME",
+            "TTL": "300",
+            "ResourceRecords": [
+              "rdbms-master.cvfl3nx8w3ay.us-west-2.rds.amazonaws.com"
+            ]
+          }
+        ]
+      }
+    },
+    "dnswwwwhoopdevcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoopdev.com.",
+        "RecordSets": [
+          {
+            "Name": "www.whoopdev.com.",
+            "Type": "CNAME",
+            "TTL": "300",
+            "ResourceRecords": [
+              "whoopdev.com.s3-website-us-west-2.amazonaws.com"
+            ]
+          }
+        ]
+      }
+    },
+    "dnswhoopcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoop.com.",
+        "RecordSets": [
+          {
+            "Name": "whoop.com.",
+            "Type": "TXT",
+            "TTL": "300",
+            "ResourceRecords": [
+              "\"v=spf1 include:_spf.google.com ip4:184.168.200.185 ~all\"",
+              "\"google-site-verification=N2tVBJL-ws3rGzuSKxqwUjoALkDGFAGUgBo_o5xeHjc\""
+            ]
+          }
+        ]
+      }
+    },
+    "dnsapiwhoopcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoop.com.",
+        "RecordSets": [
+          {
+            "Name": "api.whoop.com.",
+            "Type": "A",
+            "ResourceRecords": [
+
+            ],
+            "AliasTarget": {
+              "HostedZoneId": "Z33MTJ483KN6FU",
+              "DNSName": "elb-api-server-1051798522.us-west-2.elb.amazonaws.com"
+            }
+          }
+        ]
+      }
+    },
+    "dnsappwhoopcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoop.com.",
+        "RecordSets": [
+          {
+            "Name": "app.whoop.com.",
+            "Type": "A",
+            "ResourceRecords": [
+
+            ],
+            "AliasTarget": {
+              "HostedZoneId": "Z2FDTNDATAQYW2",
+              "DNSName": "d2tuuciytyoyj4.cloudfront.net"
+            }
+          }
+        ]
+      }
+    },
+    "dnsbastion2whoopcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoop.com.",
+        "RecordSets": [
+          {
+            "Name": "bastion-2.whoop.com.",
+            "Type": "CNAME",
+            "TTL": "300",
+            "ResourceRecords": [
+              "ec2-54-200-155-165.us-west-2.compute.amazonaws.com"
+            ]
+          }
+        ]
+      }
+    },
+    "dnsbastionwhoopcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoop.com.",
+        "RecordSets": [
+          {
+            "Name": "bastion.whoop.com.",
+            "Type": "CNAME",
+            "TTL": "300",
+            "ResourceRecords": [
+              "ec2-54-68-199-53.us-west-2.compute.amazonaws.com"
+            ]
+          }
+        ]
+      }
+    },
+    "dnsdeletegappsnotbefore20140202utcwhoopcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoop.com.",
+        "RecordSets": [
+          {
+            "Name": "deletegappsnotbefore20140202utc.whoop.com.",
+            "Type": "CNAME",
+            "TTL": "300",
+            "ResourceRecords": [
+              "whoop.com-at.google.com"
+            ]
+          }
+        ]
+      }
+    },
+    "dnsdevwhoopcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoop.com.",
+        "RecordSets": [
+          {
+            "Name": "dev.whoop.com.",
+            "Type": "A",
+            "TTL": "300",
+            "ResourceRecords": [
+              "172.16.0.10"
+            ]
+          }
+        ]
+      }
+    },
+    "dnsdronewhoopcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoop.com.",
+        "RecordSets": [
+          {
+            "Name": "drone.whoop.com.",
+            "Type": "A",
+            "TTL": "300",
+            "ResourceRecords": [
+              "54.148.167.12"
+            ]
+          }
+        ]
+      }
+    },
+    "dnsgoogle1b6699d67becead4whoopcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoop.com.",
+        "RecordSets": [
+          {
+            "Name": "google1b6699d67becead4.whoop.com.",
+            "Type": "CNAME",
+            "TTL": "300",
+            "ResourceRecords": [
+              "google.com"
+            ]
+          }
+        ]
+      }
+    },
+    "dnsstagingwhoopcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoop.com.",
+        "RecordSets": [
+          {
+            "Name": "staging.whoop.com.",
+            "Type": "CNAME",
+            "TTL": "300",
+            "ResourceRecords": [
+              "ec2-54-186-180-37.us-west-2.compute.amazonaws.com"
+            ]
+          }
+        ]
+      }
+    },
+    "dnswwwwhoopcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoop.com.",
+        "RecordSets": [
+          {
+            "Name": "www.whoop.com.",
+            "Type": "A",
+            "ResourceRecords": [
+
+            ],
+            "AliasTarget": {
+              "HostedZoneId": "Z3BJ6K6RIION7M",
+              "DNSName": "s3-website-us-west-2.amazonaws.com"
+            }
+          }
+        ]
+      }
+    },
+    "dnsapiserver10whoopin": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoop.in.",
+        "RecordSets": [
+          {
+            "Name": "api-server-10.whoop.in.",
+            "Type": "A",
+            "TTL": "300",
+            "ResourceRecords": [
+              "10.0.15.24"
+            ]
+          }
+        ]
+      }
+    },
+    "dnsbastionwhoopin": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoop.in.",
+        "RecordSets": [
+          {
+            "Name": "bastion.whoop.in.",
+            "Type": "A",
+            "TTL": "300",
+            "ResourceRecords": [
+              "10.0.10.32"
+            ]
+          }
+        ]
+      }
+    },
+    "dnspostgreswhoopin": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoop.in.",
+        "RecordSets": [
+          {
+            "Name": "postgres.whoop.in.",
+            "Type": "CNAME",
+            "TTL": "300",
+            "ResourceRecords": [
+              "production-postgresql3.cvfl3nx8w3ay.us-west-2.rds.amazonaws.com"
+            ]
+          }
+        ]
+      }
+    },
+    "dnsutility2whoopin": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "whoop.in.",
+        "RecordSets": [
+          {
+            "Name": "utility-2.whoop.in.",
+            "Type": "A",
+            "TTL": "300",
+            "ResourceRecords": [
+              "10.0.15.58"
+            ]
+          }
+        ]
+      }
+    },
+    "vpc2d0b9c48": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/16",
+        "InstanceTenancy": "default",
+        "EnableDnsSupport": "true",
+        "EnableDnsHostnames": "true",
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "Production"
+          },
+          {
+            "Key": "Name",
+            "Value": "whoop-east-prod"
+          },
+          {
+            "Key": "Service",
+            "Value": "VPC"
+          },
+          {
+            "Key": "Application",
+            "Value": "Whoop VPC"
+          },
+          {
+            "Key": "Role",
+            "Value": "Virtual Network"
+          }
+        ]
+      }
+    },
+    "subnet632fdd48": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/24",
+        "AvailabilityZone": "us-east-1c",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "Tags": [
+          {
+            "Key": "Application",
+            "Value": "Whoop VPC"
+          },
+          {
+            "Key": "Environment",
+            "Value": "Production"
+          },
+          {
+            "Key": "Name",
+            "Value": "Public subnet"
+          },
+          {
+            "Key": "Service",
+            "Value": "VPC"
+          },
+          {
+            "Key": "Role",
+            "Value": "Virtual Network"
+          }
+        ]
+      }
+    },
+    "subnet12dc0f4b": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.2.0/24",
+        "AvailabilityZone": "us-east-1a",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "Tags": [
+          {
+            "Key": "Role",
+            "Value": "Virtual Network"
+          },
+          {
+            "Key": "Name",
+            "Value": "Private subnet us-east-1a"
+          },
+          {
+            "Key": "Environment",
+            "Value": "Production"
+          },
+          {
+            "Key": "Application",
+            "Value": "Whoop VPC"
+          },
+          {
+            "Key": "Service",
+            "Value": "VPC"
+          }
+        ]
+      }
+    },
+    "subnet6c2fdd47": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.1.0/24",
+        "AvailabilityZone": "us-east-1c",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "Tags": [
+          {
+            "Key": "Service",
+            "Value": "VPC"
+          },
+          {
+            "Key": "Environment",
+            "Value": "Production"
+          },
+          {
+            "Key": "Role",
+            "Value": "Virtual Network"
+          },
+          {
+            "Key": "Name",
+            "Value": " Private subnet us-east-1c"
+          },
+          {
+            "Key": "Application",
+            "Value": "Whoop VPC"
+          }
+        ]
+      }
+    },
+    "igwd75bfbb2": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Service",
+            "Value": "VPC"
+          },
+          {
+            "Key": "Application",
+            "Value": "Whoop VPC"
+          },
+          {
+            "Key": "Environment",
+            "Value": "Production"
+          },
+          {
+            "Key": "Name",
+            "Value": "Internet Gateway"
+          },
+          {
+            "Key": "Role",
+            "Value": "Virtual Network"
+          }
+        ]
+      }
+    },
+    "dopt82dbc3e0": {
+      "Type": "AWS::EC2::DHCPOptions",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Role",
+            "Value": "Virtual Network"
+          },
+          {
+            "Key": "Environment",
+            "Value": "Production"
+          },
+          {
+            "Key": "Application",
+            "Value": "Whoop VPC"
+          },
+          {
+            "Key": "Service",
+            "Value": "VPC"
+          },
+          {
+            "Key": "Name",
+            "Value": "DCHP Options Set"
+          }
+        ],
+        "DomainName": "ec2.internal",
+        "DomainNameServers": [
+          "AmazonProvidedDNS"
+        ]
+      }
+    },
+    "acla328a2c6": {
+      "Type": "AWS::EC2::NetworkAcl",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "Tags": [
+          {
+            "Key": "Service",
+            "Value": "VPC"
+          },
+          {
+            "Key": "Environment",
+            "Value": "Production"
+          },
+          {
+            "Key": "Role",
+            "Value": "Virtual Network"
+          },
+          {
+            "Key": "Application",
+            "Value": "Whoop ACL"
+          },
+          {
+            "Key": "Name",
+            "Value": "Network ACLS"
+          }
+        ]
+      }
+    },
+    "rtb823dafe7": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        }
+      }
+    },
+    "rtb833dafe6": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        }
+      }
+    },
+    "elbelbproduseast": {
+      "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
+      "Properties": {
+        "Subnets": [
+          {
+            "Ref": "subnet12dc0f4b"
+          },
+          {
+            "Ref": "subnet6c2fdd47"
+          }
+        ],
+        "HealthCheck": {
+          "HealthyThreshold": "10",
+          "Interval": "30",
+          "Target": "HTTP:80/index.html",
+          "Timeout": "5",
+          "UnhealthyThreshold": "2"
+        },
+        "Instances": [
+          {
+            "Ref": "instanceia0560c41"
+          },
+          {
+            "Ref": "instanceid630843a"
+          }
+        ],
+        "SecurityGroups": [
+          {
+            "Ref": "sgAWSOpsWorksLBServer"
+          }
+        ],
+        "Listeners": [
+          {
+            "InstancePort": "80",
+            "LoadBalancerPort": "80",
+            "Protocol": "HTTP",
+            "InstanceProtocol": "HTTP"
+          },
+          {
+            "InstancePort": "80",
+            "LoadBalancerPort": "443",
+            "Protocol": "HTTPS",
+            "InstanceProtocol": "HTTP",
+            "SSLCertificateId": "arn:aws:iam::688238828846:server-certificate/star.whoop.com",
+            "PolicyNames": [
+              "AWSConsole-SSLNegotiationPolicy-elb-prod-us-east-1417463888834"
+            ]
+          }
+        ]
+      }
+    },
+    "eip54164193123": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc"
+      }
+    },
+    "distd2tuuciytyoyj4cloudfrontnet": {
+      "Type": "AWS::CloudFront::Distribution",
+      "Properties": {
+        "DistributionConfig": {
+          "Enabled": true,
+          "Aliases": [
+            "app.whoop.com"
+          ],
+          "DefaultCacheBehavior": {
+            "TargetOriginId": "S3-whoopdev.com",
+            "ViewerProtocolPolicy": "redirect-to-https",
+            "MinTTL": 0,
+            "ForwardedValues": {
+              "QueryString": true
+            }
+          },
+          "Origins": [
+            {
+              "DomainName": "app.whoop.com.s3.amazonaws.com",
+              "Id": "S3-whoopdev.com",
+              "S3OriginConfig": {
+              }
+            }
+          ]
+        }
+      }
+    },
+    "distd3fygqrkdhstv3cloudfrontnet": {
+      "Type": "AWS::CloudFront::Distribution",
+      "Properties": {
+        "DistributionConfig": {
+          "Enabled": true,
+          "Aliases": [
+            "whoop.com"
+          ],
+          "DefaultCacheBehavior": {
+            "TargetOriginId": "S3-whoop.com",
+            "ViewerProtocolPolicy": "allow-all",
+            "MinTTL": 0
+          },
+          "Origins": [
+            {
+              "DomainName": "whoop.com.s3-website-us-west-2.amazonaws.com",
+              "Id": "S3-whoop.com",
+              "S3OriginConfig": {
+                "HTTPPort": "80",
+                "HTTPSPort": "443",
+                "OriginProtocolPolicy": "http-only"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "instanceif16f4e10": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "DisableApiTermination": "FALSE",
+        "IamInstanceProfile": "arn:aws:iam::688238828846:instance-profile/CloudFormer-CFNInstanceProfile-9W2GL367YW3O",
+        "ImageId": "ami-c421a7ac",
+        "InstanceType": "t1.micro",
+        "KernelId": "aki-919dcaf8",
+        "Monitoring": "false",
+        "Tags": [
+          {
+            "Key": "Service",
+            "Value": "CloudFormation"
+          },
+          {
+            "Key": "Name",
+            "Value": "CloudFormer"
+          }
+        ]
+      }
+    },
+    "instanceia0560c41": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "DisableApiTermination": "FALSE",
+        "IamInstanceProfile": "arn:aws:iam::688238828846:instance-profile/web-app-server",
+        "ImageId": "ami-704dd418",
+        "InstanceType": "t2.medium",
+        "KeyName": "ops-automation",
+        "Monitoring": "true",
+        "Tags": [
+          {
+            "Key": "Service",
+            "Value": "EC2"
+          },
+          {
+            "Key": "Name",
+            "Value": "API Server 02"
+          },
+          {
+            "Key": "Environment",
+            "Value": "Production"
+          },
+          {
+            "Key": "Cluster",
+            "Value": "Node JS API Servers"
+          },
+          {
+            "Key": "Role",
+            "Value": "API Server"
+          }
+        ],
+        "NetworkInterfaces": [
+          {
+            "DeleteOnTermination": "true",
+            "Description": "Primary network interface",
+            "DeviceIndex": 0,
+            "SubnetId": {
+              "Ref": "subnet6c2fdd47"
+            },
+            "PrivateIpAddresses": [
+              {
+                "PrivateIpAddress": "10.0.1.163",
+                "Primary": "true"
+              }
+            ],
+            "GroupSet": [
+              {
+                "Ref": "sgWebServerSG"
+              }
+            ],
+            "AssociatePublicIpAddress": "true"
+          }
+        ]
+      }
+    },
+    "instanceid630843a": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "DisableApiTermination": "FALSE",
+        "IamInstanceProfile": "arn:aws:iam::688238828846:instance-profile/web-app-server",
+        "ImageId": "ami-704dd418",
+        "InstanceType": "t2.medium",
+        "KeyName": "ops-automation",
+        "Monitoring": "true",
+        "Tags": [
+          {
+            "Key": "Cluster",
+            "Value": "Node JS API Servers"
+          },
+          {
+            "Key": "Name",
+            "Value": "API Server 01"
+          },
+          {
+            "Key": "Service",
+            "Value": "EC2"
+          },
+          {
+            "Key": "Role",
+            "Value": "API Server"
+          },
+          {
+            "Key": "Environment",
+            "Value": "Production"
+          }
+        ],
+        "NetworkInterfaces": [
+          {
+            "DeleteOnTermination": "true",
+            "Description": "Primary network interface",
+            "DeviceIndex": 0,
+            "SubnetId": {
+              "Ref": "subnet12dc0f4b"
+            },
+            "PrivateIpAddresses": [
+              {
+                "PrivateIpAddress": "10.0.2.117",
+                "Primary": "true"
+              }
+            ],
+            "GroupSet": [
+              {
+                "Ref": "sgWebServerSG"
+              }
+            ],
+            "AssociatePublicIpAddress": "true"
+          }
+        ]
+      }
+    },
+    "s3cftemplates1xarguz02yinouseast1": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+      }
+    },
+    "s3dailybackupswhoopcom": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Role",
+            "Value": "Operations"
+          }
+        ]
+      }
+    },
+    "s3iosbuildswhoopcom": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+      }
+    },
+    "s3landingtestwhoopcom": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "WebsiteConfiguration": {
+          "IndexDocument": "index.html"
+        }
+      }
+    },
+    "s3logseastwhoopcom": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+      }
+    },
+    "s3rawwhoopcom": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+      }
+    },
+    "s3vagrantwhoopcom": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+      }
+    },
+    "s3weeklybackupswhoopcom": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+      }
+    },
+    "cacheredisproduse001": {
+      "Type": "AWS::ElastiCache::CacheCluster",
+      "Properties": {
+        "AutoMinorVersionUpgrade": "true",
+        "CacheNodeType": "cache.r3.large",
+        "Engine": "redis",
+        "EngineVersion": "2.8.6",
+        "NumCacheNodes": "1",
+        "PreferredAvailabilityZone": "us-east-1a",
+        "PreferredMaintenanceWindow": "fri:03:00-fri:04:00",
+        "CacheSecurityGroupNames": [
+          {
+            "Ref": "csgdefault"
+          }
+        ]
+      }
+    },
+    "cacheredisproduse002": {
+      "Type": "AWS::ElastiCache::CacheCluster",
+      "Properties": {
+        "AutoMinorVersionUpgrade": "true",
+        "CacheNodeType": "cache.r3.large",
+        "Engine": "redis",
+        "EngineVersion": "2.8.6",
+        "NumCacheNodes": "1",
+        "PreferredAvailabilityZone": "us-east-1c",
+        "PreferredMaintenanceWindow": "fri:03:00-fri:04:00",
+        "CacheSecurityGroupNames": [
+          {
+            "Ref": "csgdefault"
+          }
+        ]
+      }
+    },
+    "cacheredisproduse003": {
+      "Type": "AWS::ElastiCache::CacheCluster",
+      "Properties": {
+        "AutoMinorVersionUpgrade": "true",
+        "CacheNodeType": "cache.r3.large",
+        "Engine": "redis",
+        "EngineVersion": "2.8.6",
+        "NumCacheNodes": "1",
+        "PreferredAvailabilityZone": "us-east-1d",
+        "PreferredMaintenanceWindow": "fri:03:00-fri:04:00",
+        "CacheSecurityGroupNames": [
+          {
+            "Ref": "csgdefault"
+          }
+        ]
+      }
+    },
+    "topicWHOOPAWSbilling": {
+      "Type": "AWS::SNS::Topic",
+      "Properties": {
+        "DisplayName": "WHOOP AWS billing",
+        "Subscription": [
+          {
+            "Endpoint": "capodilupo@whoop.com",
+            "Protocol": "email"
+          },
+          {
+            "Endpoint": "waisbrot@whoop.com",
+            "Protocol": "email"
+          },
+          {
+            "Endpoint": "famadas@whoop.com",
+            "Protocol": "email"
+          },
+          {
+            "Endpoint": "https://app.datadoghq.com/intake/webhook/sns?api_key=310bb506858e78ad478450d690f914fe",
+            "Protocol": "https"
+          }
+        ]
+      }
+    },
+    "sgelasticbamboo": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Atlassian Bamboo Elastic Agents",
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "3389",
+            "ToPort": "3389",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "26224",
+            "ToPort": "26224",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgdefault": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "default VPC security group",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "SecurityGroupEgress": [
+          {
+            "IpProtocol": "-1",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgCloudFormerInstanceSecurityGroupZFN3PIYN100G": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Enable Access via port 80",
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "80",
+            "ToPort": "80",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgUsEastDec1InstanceSecurityGroup1693RW2C0FLOF": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Enable Access via port 80",
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "80",
+            "ToPort": "80",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgControlledByBamboo": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Instance shutdown controlled by Bamboo"
+      }
+    },
+    "sgAWSOpsWorksnodejsAppServer": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "AWS OpsWorks nodejs-App server - do not change or delete",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "80",
+            "ToPort": "80",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "443",
+            "ToPort": "443",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ],
+        "SecurityGroupEgress": [
+          {
+            "IpProtocol": "-1",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgMMSMongo": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "For MMS Driven Mongo",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "27000",
+            "ToPort": "27020",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgWebServerSG": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "a security group for web servers",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "3389",
+            "ToPort": "3389",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "80",
+            "ToPort": "80",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgAWSOpsWorksAWSFlowRubyServer": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "AWS Flow Ruby server - do not change or delete",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "80",
+            "ToPort": "80",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "443",
+            "ToPort": "443",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ],
+        "SecurityGroupEgress": [
+          {
+            "IpProtocol": "-1",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgAWSOpsWorksRailsAppServer": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "AWS OpsWorks Rails-App server - do not change or delete",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "80",
+            "ToPort": "80",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "443",
+            "ToPort": "443",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ],
+        "SecurityGroupEgress": [
+          {
+            "IpProtocol": "-1",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgAWSOpsWorksLBServer": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "AWS OpsWorks load balancer - do not change or delete",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "80",
+            "ToPort": "80",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "443",
+            "ToPort": "443",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ],
+        "SecurityGroupEgress": [
+          {
+            "IpProtocol": "-1",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgAWSOpsWorksMonitoringMasterServer": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "AWS OpsWorks Monitoring Ganglia server - do not change or delete",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "443",
+            "ToPort": "443",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "80",
+            "ToPort": "80",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ],
+        "SecurityGroupEgress": [
+          {
+            "IpProtocol": "-1",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgAWSOpsWorksJavaAppServer": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "AWS OpsWorks Java-App server - do not change or delete",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "80",
+            "ToPort": "80",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "443",
+            "ToPort": "443",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ],
+        "SecurityGroupEgress": [
+          {
+            "IpProtocol": "-1",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgAWSOpsWorksBlankServer": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "AWS OpsWorks blank server - do not change or delete",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ],
+        "SecurityGroupEgress": [
+          {
+            "IpProtocol": "-1",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgAWSOpsWorksDBMasterServer": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "AWS OpsWorks database master server - do not change or delete",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "SecurityGroupEgress": [
+          {
+            "IpProtocol": "-1",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgAWSOpsWorksCustomServer": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "AWS OpsWorks custom server - do not change or delete",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "443",
+            "ToPort": "443",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "80",
+            "ToPort": "80",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ],
+        "SecurityGroupEgress": [
+          {
+            "IpProtocol": "-1",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgAWSOpsWorksMemcachedServer": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "AWS OpsWorks Memcached server - do not change or delete",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ],
+        "SecurityGroupEgress": [
+          {
+            "IpProtocol": "-1",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgAWSOpsWorksWebServer": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "AWS OpsWorks Web server - do not change or delete",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "80",
+            "ToPort": "80",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "443",
+            "ToPort": "443",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ],
+        "SecurityGroupEgress": [
+          {
+            "IpProtocol": "-1",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgAWSOpsWorksPHPAppServer": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "AWS OpsWorks PHP-App server - do not change or delete",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "80",
+            "ToPort": "80",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "443",
+            "ToPort": "443",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ],
+        "SecurityGroupEgress": [
+          {
+            "IpProtocol": "-1",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "sgAWSOpsWorksDefaultServer": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "AWS OpsWorks Default server - do not change or delete",
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ],
+        "SecurityGroupEgress": [
+          {
+            "IpProtocol": "-1",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "dbsgdefault": {
+      "Type": "AWS::RDS::DBSecurityGroup",
+      "Properties": {
+        "GroupDescription": "default"
+      }
+    },
+    "csgdefault": {
+      "Type": "AWS::ElastiCache::SecurityGroup",
+      "Properties": {
+        "Description": "default"
+      }
+    },
+    "s3policyiosbuildswhoopcom": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "s3iosbuildswhoopcom"
+        },
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "s3:ListBucketVersions",
+                "s3:AbortMultipartUpload",
+                "s3:RestoreObject",
+                "s3:ListBucket",
+                "s3:GetObject",
+                "s3:PutObjectAcl",
+                "s3:PutObjectVersionAcl",
+                "s3:ListBucketMultipartUploads",
+                "s3:ListMultipartUploadParts",
+                "s3:PutObject"
+              ],
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": [
+                  "*"
+                ]
+              },
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "s3iosbuildswhoopcom"
+                      },
+                      "/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "s3iosbuildswhoopcom"
+                      },
+                      ""
+                    ]
+                  ]
+                }
+              ],
+              "Sid": "Stmt1412358899487"
+            }
+          ]
+        }
+      }
+    },
+    "s3policylandingtestwhoopcom": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "s3landingtestwhoopcom"
+        },
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "s3:GetObject"
+              ],
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": [
+                  "*"
+                ]
+              },
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "s3landingtestwhoopcom"
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              ],
+              "Sid": "PublicReadGetObject"
+            }
+          ]
+        }
+      }
+    },
+    "s3policylogseastwhoopcom": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "s3logseastwhoopcom"
+        },
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "s3:GetBucketAcl"
+              ],
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": [
+                  "arn:aws:iam::903692715234:root",
+                  "arn:aws:iam::859597730677:root",
+                  "arn:aws:iam::814480443879:root",
+                  "arn:aws:iam::216624486486:root",
+                  "arn:aws:iam::086441151436:root",
+                  "arn:aws:iam::388731089494:root",
+                  "arn:aws:iam::284668455005:root",
+                  "arn:aws:iam::113285607260:root"
+                ]
+              },
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "s3logseastwhoopcom"
+                      },
+                      ""
+                    ]
+                  ]
+                }
+              ],
+              "Sid": "AWSCloudTrailAclCheck20131101"
+            },
+            {
+              "Action": [
+                "s3:PutObject"
+              ],
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": [
+                  "arn:aws:iam::903692715234:root",
+                  "arn:aws:iam::859597730677:root",
+                  "arn:aws:iam::814480443879:root",
+                  "arn:aws:iam::216624486486:root",
+                  "arn:aws:iam::086441151436:root",
+                  "arn:aws:iam::388731089494:root",
+                  "arn:aws:iam::284668455005:root",
+                  "arn:aws:iam::113285607260:root"
+                ]
+              },
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "s3logseastwhoopcom"
+                      },
+                      "/cloudtrail/*"
+                    ]
+                  ]
+                }
+              ],
+              "Sid": "AWSCloudTrailWrite20131101"
+            }
+          ]
+        }
+      }
+    },
+    "s3policyrawwhoopcom": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "s3rawwhoopcom"
+        },
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "s3:ListBucketVersions",
+                "s3:AbortMultipartUpload",
+                "s3:RestoreObject",
+                "s3:ListBucket",
+                "s3:GetObject",
+                "s3:PutObjectAcl",
+                "s3:PutObjectVersionAcl",
+                "s3:ListBucketMultipartUploads",
+                "s3:ListMultipartUploadParts",
+                "s3:PutObject"
+              ],
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": [
+                  "*"
+                ]
+              },
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "s3rawwhoopcom"
+                      },
+                      "/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "s3rawwhoopcom"
+                      },
+                      ""
+                    ]
+                  ]
+                }
+              ],
+              "Sid": "Stmt1412358899487"
+            }
+          ]
+        }
+      }
+    },
+    "alarmBillingAlarm": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "ActionsEnabled": "true",
+        "AlarmDescription": "Monthly bill is more than $0",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "EvaluationPeriods": "1",
+        "MetricName": "EstimatedCharges",
+        "Namespace": "AWS/Billing",
+        "Period": "21600",
+        "Statistic": "Maximum",
+        "Threshold": "0.0",
+        "AlarmActions": [
+          "arn:aws:sns:us-east-1:688238828846:whoop-billing"
+        ],
+        "Dimensions": [
+          {
+            "Name": "Currency",
+            "Value": "USD"
+          }
+        ]
+      }
+    },
+    "alarmLargeAWSBill": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "ActionsEnabled": "true",
+        "AlarmDescription": "Monthly bill is getting pretty big",
+        "ComparisonOperator": "GreaterThanThreshold",
+        "EvaluationPeriods": "1",
+        "MetricName": "EstimatedCharges",
+        "Namespace": "AWS/Billing",
+        "Period": "21600",
+        "Statistic": "Maximum",
+        "Threshold": "1000.0",
+        "AlarmActions": [
+          "arn:aws:sns:us-east-1:688238828846:whoop-billing"
+        ],
+        "Dimensions": [
+          {
+            "Name": "Currency",
+            "Value": "USD"
+          }
+        ]
+      }
+    },
+    "acl1": {
+      "Type": "AWS::EC2::NetworkAclEntry",
+      "Properties": {
+        "CidrBlock": "0.0.0.0/0",
+        "Egress": true,
+        "Protocol": "-1",
+        "RuleAction": "allow",
+        "RuleNumber": "100",
+        "NetworkAclId": {
+          "Ref": "acla328a2c6"
+        }
+      }
+    },
+    "acl2": {
+      "Type": "AWS::EC2::NetworkAclEntry",
+      "Properties": {
+        "CidrBlock": "0.0.0.0/0",
+        "Protocol": "-1",
+        "RuleAction": "allow",
+        "RuleNumber": "100",
+        "NetworkAclId": {
+          "Ref": "acla328a2c6"
+        }
+      }
+    },
+    "subnetacl1": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "acla328a2c6"
+        },
+        "SubnetId": {
+          "Ref": "subnet6c2fdd47"
+        }
+      }
+    },
+    "subnetacl2": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "acla328a2c6"
+        },
+        "SubnetId": {
+          "Ref": "subnet632fdd48"
+        }
+      }
+    },
+    "subnetacl3": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "acla328a2c6"
+        },
+        "SubnetId": {
+          "Ref": "subnet12dc0f4b"
+        }
+      }
+    },
+    "gw1": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "InternetGatewayId": {
+          "Ref": "igwd75bfbb2"
+        }
+      }
+    },
+    "subnetroute1": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "rtb823dafe7"
+        },
+        "SubnetId": {
+          "Ref": "subnet632fdd48"
+        }
+      }
+    },
+    "route1": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "RouteTableId": {
+          "Ref": "rtb823dafe7"
+        },
+        "GatewayId": {
+          "Ref": "igwd75bfbb2"
+        }
+      },
+      "DependsOn": "gw1"
+    },
+    "route2": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "RouteTableId": {
+          "Ref": "rtb833dafe6"
+        },
+        "NetworkInterfaceId": "eni-e79fd2cd"
+      }
+    },
+    "dchpassoc1": {
+      "Type": "AWS::EC2::VPCDHCPOptionsAssociation",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpc2d0b9c48"
+        },
+        "DhcpOptionsId": {
+          "Ref": "dopt82dbc3e0"
+        }
+      }
+    },
+    "ingress1": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupName": {
+          "Ref": "sgelasticbamboo"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress2": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupName": {
+          "Ref": "sgelasticbamboo"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress3": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupName": {
+          "Ref": "sgelasticbamboo"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "26224",
+        "ToPort": "26224",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress4": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupName": {
+          "Ref": "sgdefault"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "0",
+        "ToPort": "65535",
+        "SourceSecurityGroupName": {
+          "Ref": "sgdefault"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress5": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupName": {
+          "Ref": "sgdefault"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "0",
+        "ToPort": "65535",
+        "SourceSecurityGroupName": {
+          "Ref": "sgdefault"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress6": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupName": {
+          "Ref": "sgdefault"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupName": {
+          "Ref": "sgdefault"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress7": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupName": {
+          "Ref": "sgCloudFormerInstanceSecurityGroupZFN3PIYN100G"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress8": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupName": {
+          "Ref": "sgUsEastDec1InstanceSecurityGroup1693RW2C0FLOF"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress9": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress10": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress11": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress12": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress13": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress14": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress15": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress16": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress17": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress18": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgMMSMongo"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress19": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgMMSMongo"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "27000",
+        "ToPort": "27020",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress20": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebServerSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress21": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebServerSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress22": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgWebServerSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress23": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgdefault"
+        },
+        "IpProtocol": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgdefault"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress24": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksAWSFlowRubyServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress25": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksAWSFlowRubyServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress26": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksAWSFlowRubyServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress27": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksAWSFlowRubyServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress28": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksAWSFlowRubyServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress29": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksAWSFlowRubyServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress30": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksAWSFlowRubyServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress31": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksAWSFlowRubyServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress32": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksAWSFlowRubyServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress33": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress34": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress35": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress36": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress37": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress38": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress39": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress40": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress41": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress42": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress43": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress44": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress45": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress46": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress47": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksDefaultServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress48": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress49": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress50": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress51": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress52": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress53": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress54": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress55": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress56": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress57": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksDefaultServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress58": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress59": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress60": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress61": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress62": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress63": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress64": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress65": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress66": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress67": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress68": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress69": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress70": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress71": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress72": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress73": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress74": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress75": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksDefaultServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress76": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress77": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress78": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress79": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress80": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress81": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress82": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress83": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress84": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress85": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress86": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress87": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksBlankServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress88": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress89": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress90": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress91": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress92": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress93": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress94": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress95": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress96": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress97": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress98": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress99": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress100": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress101": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress102": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress103": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress104": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress105": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress106": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress107": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress108": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress109": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress110": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress111": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress112": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress113": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress114": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress115": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress116": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress117": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress118": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress119": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress120": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress121": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress122": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress123": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress124": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress125": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress126": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress127": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress128": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress129": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress130": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress131": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress132": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress133": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress134": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress135": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress136": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress137": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress138": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress139": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress140": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress141": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress142": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress143": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress144": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress145": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress146": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress147": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress148": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress149": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress150": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress151": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress152": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress153": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress154": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress155": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress156": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress157": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress158": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress159": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress160": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress161": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress162": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "IpProtocol": "udp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress163": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress164": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "1",
+        "ToPort": "65535",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress165": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress166": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "SourceSecurityGroupOwnerId": "688238828846"
+      }
+    },
+    "ingress167": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDefaultServer"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "egress1": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksnodejsAppServer"
+        },
+        "IpProtocol": "-1",
+        "CidrIP": "0.0.0.0/0"
+      }
+    },
+    "egress2": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgdefault"
+        },
+        "IpProtocol": "-1",
+        "CidrIP": "0.0.0.0/0"
+      }
+    },
+    "egress3": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksAWSFlowRubyServer"
+        },
+        "IpProtocol": "-1",
+        "CidrIP": "0.0.0.0/0"
+      }
+    },
+    "egress4": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksRailsAppServer"
+        },
+        "IpProtocol": "-1",
+        "CidrIP": "0.0.0.0/0"
+      }
+    },
+    "egress5": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksLBServer"
+        },
+        "IpProtocol": "-1",
+        "CidrIP": "0.0.0.0/0"
+      }
+    },
+    "egress6": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMonitoringMasterServer"
+        },
+        "IpProtocol": "-1",
+        "CidrIP": "0.0.0.0/0"
+      }
+    },
+    "egress7": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksJavaAppServer"
+        },
+        "IpProtocol": "-1",
+        "CidrIP": "0.0.0.0/0"
+      }
+    },
+    "egress8": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksBlankServer"
+        },
+        "IpProtocol": "-1",
+        "CidrIP": "0.0.0.0/0"
+      }
+    },
+    "egress9": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDBMasterServer"
+        },
+        "IpProtocol": "-1",
+        "CidrIP": "0.0.0.0/0"
+      }
+    },
+    "egress10": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksCustomServer"
+        },
+        "IpProtocol": "-1",
+        "CidrIP": "0.0.0.0/0"
+      }
+    },
+    "egress11": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksMemcachedServer"
+        },
+        "IpProtocol": "-1",
+        "CidrIP": "0.0.0.0/0"
+      }
+    },
+    "egress12": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksWebServer"
+        },
+        "IpProtocol": "-1",
+        "CidrIP": "0.0.0.0/0"
+      }
+    },
+    "egress13": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksPHPAppServer"
+        },
+        "IpProtocol": "-1",
+        "CidrIP": "0.0.0.0/0"
+      }
+    },
+    "egress14": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAWSOpsWorksDefaultServer"
+        },
+        "IpProtocol": "-1",
+        "CidrIP": "0.0.0.0/0"
+      }
+    }
+  },
+  "Description": "US East Cloud Former Generated Template"
+}
